@@ -124,9 +124,10 @@ function setRootPassword {
                         3>&1 1>&2 2>&3 3>&-)
 
         if [ "$rootpw" != "$confirmPassword" ] ; then
-            dialog --backtitle "Archian" \
+            passwordsDontMatch=$(dialog --backtitle "Archian" \
                     --title "Password" \
-                    --msgbox 'Passwords dont match!' 6 20
+                    --msgbox 'Passwords dont match!' 6 20 \
+                    3>&1 1>&2 2>&3 3>&-)
         else
             break
         fi
@@ -163,9 +164,10 @@ function addUser {
                             3>&1 1>&2 2>&3 3>&-)
 
             if [ "$userpw" != "$confirmPassword" ] ; then
-                dialog --backtitle "Archian" \
+                passwordsDontMatch=$(dialog --backtitle "Archian" \
                         --title "Password" \
-                        --msgbox 'Passwords dont match!' 6 20
+                        --msgbox 'Passwords dont match!' 6 20 \
+                        3>&1 1>&2 2>&3 3>&-)
             else
                 break
             fi
