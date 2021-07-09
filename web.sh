@@ -29,7 +29,7 @@ pacman -Sy --noconfirm
 pacman -S git --noconfirm
 
 # Clone
-git clone https://github.com/eb3095/archian
+git clone -b smaller-swap https://github.com/biondizzle/archian
 
 # Check for installation script
 if [ -f "archian.json" ]; then
