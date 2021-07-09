@@ -49,13 +49,13 @@ if [ "$EFI" = true ] ; then
   parted --script $drive mklabel gpt
   parted --script $drive mkpart primary fat32 1MiB 261MiB
   parted --script $drive set 1 esp on
-  parted --script $drive mkpart primary linux-swap 261MiB 8.3GiB
-  parted --script $drive mkpart primary ext4 8.3GiB 100%
+  parted --script $drive mkpart primary linux-swap 261MiB 2.3GiB
+  parted --script $drive mkpart primary ext4 2.3GiB 100%
   mkfs.fat -F32 "$drive"*1
 else
   parted --script $drive mklabel msdos
-  parted --script $drive mkpart primary linux-swap 1MiB 8GiB
-  parted --script $drive mkpart primary ext4 8GiB 100%
+  parted --script $drive mkpart primary linux-swap 1MiB 2GiB
+  parted --script $drive mkpart primary ext4 2GiB 100%
   parted --script $drive set 2 boot on
   mkfs.ext4 -F "$drive"*1
 fi
